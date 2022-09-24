@@ -1,0 +1,61 @@
+<div
+  [className]="
+    show_mobile ? 'mobile-menu-parent' : 'mobile-menu-parent hide-menu'
+  "
+>
+  <img
+    (click)="toggle_mobile()"
+    class="close-icon"
+    src="./assets/images/icon-close.svg"
+    alt="close"
+  />
+  <h4 class="mobile-h4">Colections</h4>
+  <h4 class="mobile-h4">Men</h4>
+  <h4 class="mobile-h4">Women</h4>
+  <h4 class="mobile-h4">About</h4>
+  <h4 class="mobile-h4">Contact</h4>
+</div>
+
+<style>
+  .mobile-menu-parent {
+    height: 100%;
+    width: 200px;
+    background: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    padding: 1em 2em;
+    transition: 0.5s ease;
+  }
+
+  .close-icon {
+    padding-top: 1em;
+    padding-bottom: 4rem;
+    cursor: pointer;
+    transition: 1s ease;
+    /* height: 45px; */
+  }
+
+  .close-icon:hover {
+    /* color: red; */
+    /* border: 2px solid black; */
+    transform: scale(1.05);
+  }
+
+  .mobile-h4 {
+    margin-bottom: 1.5rem;
+    cursor: pointer;
+    transition: 0.5s ease;
+  }
+
+  .mobile-h4:hover {
+    opacity: 85%;
+    transform: translateX(0.75em);
+  }
+
+  .hide-menu {
+    transition: 0.5s ease;
+    transform: translateX(-500px);
+  }
+</style>

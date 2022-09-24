@@ -1,0 +1,89 @@
+<div class="big-gallery-parent">
+  <img
+    [src]="currItem.main"
+    [className]="toggleClass ? 'main-img' : 'main-img fade'"
+    alt=""
+  />
+  <div class="mobile-btn-row">
+    <div (click)="changeImage('down')" class="left-arrow arrow">
+      <img src="./assets/images/icon-next.svg" alt="arrow" />
+    </div>
+    <div (click)="changeImage('up')" class="right-arrow arrow">
+      <img src="./assets/images/icon-next.svg" alt="arrow" />
+    </div>
+  </div>
+</div>
+
+<style>
+  .big-gallery-parent {
+    height: 75%;
+    width: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .main-img {
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    /* animation: fadein 0.5s forwards;
+    opacity: 0; */
+  }
+
+  .fade {
+    animation: fadein 1s forwards;
+    opacity: 0;
+  }
+
+  @keyframes fadein {
+    100% {
+      opacity: 1;
+    }
+  }
+
+  .mobile-btn-row {
+    display: flex;
+    align-items: center;
+    /* border: 3px solid blue; */
+    z-index: 4;
+    position: absolute;
+    width: 100%;
+    top: 40%;
+    left: 0;
+    padding: 1.5em;
+    display: none;
+    justify-content: space-between;
+  }
+
+  .left-arrow img {
+    transform: rotate(180deg);
+  }
+
+  .arrow {
+    width: 40px;
+    height: 40px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  .arrow:hover {
+    box-shadow: 3px 4px 28px var(--orange);
+  }
+
+  @media screen and (max-width: 850px) {
+    .big-gallery-parent {
+      height: 100%;
+      border-radius: 2px;
+      box-shadow: 3px 5px 30px rgb(226, 203, 159);
+    }
+
+    .mobile-btn-row {
+      display: flex;
+    }
+  }
+</style>

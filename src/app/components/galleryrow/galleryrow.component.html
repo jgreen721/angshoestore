@@ -1,0 +1,39 @@
+<div class="gallery-row">
+  <div class="gallery-thumb" *ngFor="let image of shoeImages; let i = index">
+    <img
+      (click)="changeCounter(i)"
+      class="thumb-img"
+      [src]="image.thumb"
+      alt="shoe-img"
+    />
+  </div>
+  <!-- <h5>Gallery</h5> -->
+</div>
+
+<style>
+  .gallery-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 25%;
+  }
+  .thumb-img {
+    height: 100px;
+    width: 100px;
+    border-radius: 5%;
+    cursor: pointer;
+    transition: 0.2s ease;
+    border: 5px solid transparent;
+  }
+
+  .thumb-img:hover {
+    border: 5px solid var(--orange);
+    opacity: 85%;
+  }
+
+  @media screen and (max-width: 850px) {
+    .gallery-row {
+      display: none;
+    }
+  }
+</style>

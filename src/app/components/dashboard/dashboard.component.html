@@ -1,0 +1,94 @@
+<div class="dash-app">
+  <app-topmenu
+    (toggleMobile)="toggleMobile()"
+    (clearCart)="clearCart()"
+    [quantity]="quantity"
+  ></app-topmenu>
+  <app-mobilemenu
+    [show_mobile]="show_mobile"
+    (toggleMobile)="toggleMobile()"
+  ></app-mobilemenu>
+  <div class="dashapp-row">
+    <div class="dashapp-column">
+      <div class="gallery-card">
+        <app-gallerycard
+          (changeCounter)="changeCounter($event)"
+          [currItem]="currItem"
+          [toggleClass]="toggleClass"
+        ></app-gallerycard>
+        <app-galleryrow
+          (changeCurr)="changeCurr($event)"
+          [shoeImages]="shoeImages"
+        ></app-galleryrow>
+      </div>
+    </div>
+
+    <div class="dashapp-column">
+      <app-infocard (addToCart)="addToCart($event)"></app-infocard>
+    </div>
+  </div>
+</div>
+
+<style>
+  .dash-app {
+    height: 100%;
+    width: 100%;
+    /* border: 2px solid black; */
+    position: relative;
+  }
+
+  .dashapp-row {
+    width: 100%;
+    display: flex;
+    height: 85%;
+    /* border: 3px solid red; */
+  }
+
+  .dashapp-column {
+    width: 50%;
+    height: 100%;
+    /* border: 2px solid blue; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    /* position: relative; */
+  }
+
+  .gallery-card {
+    height: 85%;
+    width: clamp(45%, 475px, 100%);
+    /* border: 2px solid red; */
+    padding: 1em;
+  }
+
+  @media screen and (max-width: 850px) {
+    .dashapp-row {
+      flex-direction: column;
+    }
+
+    .gallery-card {
+      padding: 0;
+      height: 100%;
+    }
+
+    .dashapp-column {
+      width: 100%;
+    }
+
+    .dashapp-column:nth-child(1) {
+      height: 40%;
+    }
+
+    .dashapp-column:nth-child(2) {
+      height: 65%;
+    }
+  }
+
+  @media screen and (max-width: 450px) {
+    .dashapp-row {
+      flex-direction: column;
+      height: 92%;
+    }
+  }
+</style>

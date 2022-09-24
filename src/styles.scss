@@ -1,1 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+:root {
+  --orange: hsl(26, 100%, 55%);
+  --pale_orange: hsl(25, 100%, 94%);
+  --darkblue: hsl(220, 13%, 13%);
+  --darkgrayblue: hsl(219, 9%, 45%);
+  --grayblue: hsl(220, 14%, 75%);
+  --lightgrayblue: hsl(223, 64%, 98%);
+}

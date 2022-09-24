@@ -1,0 +1,135 @@
+<div [className]="show_cart ? 'cart' : 'cart hide-cart'">
+  <div class="cart-header">
+    <h5>Cart</h5>
+  </div>
+  <div class="cart-body">
+    <div class="empty-cart" *ngIf="quantity === 0">
+      <p>Your cart is empty!</p>
+    </div>
+    <div *ngIf="quantity > 0" class="filled-cart">
+      <div class="cart-row">
+        <img
+          class="cartitem-img"
+          src="./assets/images/image-product-1-thumbnail.jpg"
+          alt=""
+        />
+        <div class="cart-info">
+          <h5 class="cart-h5">Autumn Limited Edition...</h5>
+          <h5 class="cart-h5 cart-price">
+            $125.00 x {{ quantity }}
+            <span class="strong">${{ quantity * 125 }}</span>
+          </h5>
+        </div>
+        <div>
+          <img
+            (click)="handleClearCart()"
+            class="trash-icon"
+            src="./assets/images/icon-delete.svg"
+            alt=""
+          />
+        </div>
+      </div>
+      <button class="checkout-btn">Checkout</button>
+    </div>
+  </div>
+</div>
+
+<style>
+  .cart {
+    position: absolute;
+    z-index: 5;
+    background: white;
+    height: 200px;
+    width: clamp(30%, 350px, 95%);
+    box-shadow: 2px 4px 7px gray;
+    border-radius: 5%;
+    /* left: -35px;
+    bottom: -225px; */
+    right: 2em;
+    border: 1px solid gray;
+    transition: 0.5s ease;
+  }
+
+  .cart-header {
+    padding: 0.5em;
+    border: 1px solid lightgray;
+    height: 20%;
+  }
+
+  .cart-body {
+    height: 80%;
+  }
+
+  .empty-cart {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .filled-cart {
+    height: 100%;
+    width: 100%;
+    padding: 0.5em;
+  }
+
+  .cartitem-img {
+    height: 50px;
+    border-radius: 3px;
+  }
+  .cart-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 50%;
+  }
+
+  .hide-cart {
+    opacity: 0;
+    /* display: none; */
+    position: absolute;
+    z-index: -5;
+    /* left: -35px;
+    bottom: -225px; */
+    pointer-events: none;
+    transition: 0.5s ease;
+    /* height: 200px;
+    width: 250px; */
+  }
+
+  .checkout-btn {
+    width: 100%;
+    padding: 0.5em;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    background: var(--orange);
+  }
+
+  .strong {
+    font-weight: 800;
+  }
+
+  .trash-icon {
+    cursor: pointer;
+    transition: 0.2s ease;
+  }
+
+  .trash-icon:hover {
+    transform: scale(1.1) translateY(-5px);
+  }
+
+  @media screen and (max-width: 450px) {
+    .cart {
+      position: relative;
+      margin: 0 auto;
+      right: 0%;
+    }
+  }
+
+  .cart-h5 {
+    font-size: 0.85rem;
+  }
+</style>
