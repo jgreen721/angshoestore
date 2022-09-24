@@ -1,12 +1,12 @@
 <div class="landing-app">
-  <h1 class="landing-h1">Landing Shoe Site</h1>
+  <h1 class="landing-h1">-FrontEnds Shoe Site-</h1>
   <h2>Click to Enter</h2>
-  <img
+  <!-- <img
     class="overlay-shoeimg"
     src="./assets/images/image-product-1-thumbnail.jpg"
     alt=""
-  />
-  <img
+  /> -->
+  <!-- <img
     class="overlay-shoeimg"
     src="./assets/images/image-product-2-thumbnail.jpg"
     alt=""
@@ -15,7 +15,7 @@
     class="overlay-shoeimg"
     src="./assets/images/image-product-3-thumbnail.jpg"
     alt=""
-  />
+  /> -->
   <div routerLink="/dashboard" class="overlay-cover"></div>
 </div>
 
@@ -25,14 +25,23 @@
     height: 100vh;
     width: 100vw;
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  h2 {
+    position: relative;
+    z-index: 5;
   }
 
   .landing-h1 {
-    font-size: 4.5rem;
+    font-size: 3.5rem;
     letter-spacing: 0.5em;
-    position: absolute;
-    top: 15%;
-    left: 10%;
+    /* position: absolute; */
+    /* top: 15%;
+    left: 10%; */
     z-index: 5;
     margin-right: 3rem;
     text-align: right;
@@ -46,11 +55,12 @@
     position: absolute;
     top: 0;
     left: 0;
-    background: black;
-    opacity: 45%;
-    z-index: 10;
+    /* background: black; */
+    opacity: 65%;
+    z-index: 2;
     cursor: pointer;
     transition: 10s ease;
+    background-image: url("../assets/images/image-product-1.jpg");
   }
 
   .overlay-cover:hover {
@@ -58,12 +68,15 @@
   }
 
   .overlay-shoeimg {
-    height: 50%;
+    height: 100%;
+    width: 100%;
     position: absolute;
-    width: 50%;
+
+    top: 0;
+    left: 0;
   }
 
-  .overlay-shoeimg:nth-child(2) {
+  /* .overlay-shoeimg:nth-child(2) {
     left: 50%;
   }
 
@@ -72,17 +85,17 @@
     top: 35%;
     z-index: 3;
     border-radius: 10px;
-  }
+  } */
 
   @media screen and (max-width: 650px) {
     .landing-h1 {
       font-size: 3.5rem;
     }
 
-    .overlay-shoeimg:nth-child(3) {
+    /* .overlay-shoeimg:nth-child(3) {
       width: 85%;
       top: 45%;
-    }
+    } */
   }
 
   @media screen and (max-width: 450px) {
